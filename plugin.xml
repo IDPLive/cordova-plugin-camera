@@ -21,7 +21,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-camera"
-    version="7.0.1-dev">
+    version="7.0.0">
     <name>Camera</name>
     <description>Cordova Camera Plugin</description>
     <license>Apache 2.0</license>
@@ -31,7 +31,7 @@
 
     <engines>
         <engine name="cordova" version=">=9.0.0"/>
-        <engine name="cordova-android" version=">=12.0.0" />
+        <engine name="cordova-android" version=">=10.0.0" />
         <engine name="cordova-ios" version=">=5.1.0" />
     </engines>
 
@@ -56,8 +56,11 @@
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
-            <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-            <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+			<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+			<uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+			<uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+			<uses-permission android:name="android.permission.CAMERA" />
+			
         </config-file>
         <config-file target="AndroidManifest.xml" parent="application">
           <provider
@@ -94,7 +97,7 @@
         <source-file src="src/android/GalleryPathVO.java" target-dir="src/org/apache/cordova/camera" />
         <source-file src="src/android/xml/camera_provider_paths.xml" target-dir="res/xml" />
 
-        <preference name="ANDROIDX_CORE_VERSION" default="1.6.+"/>
+        <preference name="ANDROIDX_CORE_VERSION" default="1.8.0"/>
         <framework src="androidx.core:core:$ANDROIDX_CORE_VERSION" />
 
         <js-module src="www/CameraPopoverHandle.js" name="CameraPopoverHandle">
